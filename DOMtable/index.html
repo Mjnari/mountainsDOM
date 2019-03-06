@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <h3>Example</h3>
     <table>
         <tr>
             <th>name</th>
@@ -38,8 +39,27 @@
         let mountainTable = document.createElement("TABLE");
         mountainTable.setAttribute("id", "myTable");
 
+        let row = mountainTable.insertRow(0);
+        let bold = "900";
+        
+        let nameHeader = row.insertCell(0);
+        nameHeader.innerHTML = "Name";
+        nameHeader.style.fontWeight = bold;
+        nameHeader.style.textAlign = "center";
+
+        let heightHeader = row.insertCell(1);
+        heightHeader.innerHTML = "Height";
+        heightHeader.style.fontWeight = bold;
+        heightHeader.style.textAlign = "center";
+
+        let placeHeader = row.insertCell(2);
+        placeHeader.innerHTML = "Place";
+        placeHeader.style.fontWeight = bold;
+        placeHeader.style.textAlign = "center";
+
+
         for (let i = 0; i < MOUNTAINS.length; i++) {
-            let row = mountainTable.insertRow(i);
+            row = mountainTable.insertRow(i + 1);
 
             let mountainName = row.insertCell(0);
             mountainName.innerHTML = MOUNTAINS[i].name;
