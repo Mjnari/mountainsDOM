@@ -1,0 +1,46 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Cat and Hat</title>
+    <link
+    rel="stylesheet"
+    href="style.css">
+</head>
+
+<body>
+    <style>
+        body {
+            min-height: 200px
+        }
+    </style>
+    <div id="images">
+        <img src="img/cat.jpeg" id="cat" style="position: absolute">
+        <img src="img/hat.jpeg" id="hat" style="position: absolute">
+    </div>
+
+    <script>
+        //The default file has the hat and cat awkwardly in the corner
+        let images = document.querySelector("#images");
+
+        let cat = document.querySelector("#cat");
+        let hat = document.querySelector("#hat");
+
+        let angle = 0;
+        let lastTime = null;
+        function animate(time) {
+            if (lastTime != null) angle += (time - lastTime) * 0.001;
+            lastTime = time;
+            cat.style.top = 400 + (Math.sin(angle) * 80 + 40) + "px";
+            cat.style.left = 400 + (Math.cos(angle) * 200 + 230) + "px";
+
+            // Your extensions here.
+            hat.style.top = 400 + (Math.sin(angle + Math.PI) * 80 + 40) + "px";
+            hat.style.left = 400 + (Math.cos(angle + Math.PI) * 200 + 230) + "px";
+            requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+    </script>
+</body>
+
+</html>
